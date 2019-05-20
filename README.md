@@ -1,36 +1,23 @@
-# UnityAbletonLink
+# UnityAbletonLinkKit
 
-UnityAbletonLink is an [Ableton Link](https://github.com/Ableton/link) plugin for [Unity](https://unity3d.com).
+UnityAbletonLink is an [iOS SDK for Ableton Link](https://github.com/Ableton/LinkKit) plugin for [Unity](https://unity3d.com).
 
-## Building
+## Clone LinkKit
 
-After checked out the UnityAbletonLink repository, then check out all dependencies.
-
+Clone LinkKit files into the Plugins folder.
 ```
-cd UnityAbletonLink
+cd UnityAbletonLinkKit
 git submodule update --init --recursive
 ```
 
-Open `UnityAbletonLink.xcodeproj` with Xcode, then build it.
-
-## Running
+## Writing a Unity application
 
 Create a new Unity project.
-Create a `Plugins` folder under the `Assets` folder of the project.
-
-### Mac
-
-Copy `UnityAbletonLink.bundle` and `CSharp/AbletonLink.cs` into the `Plugins` folder.
-
-### Windows
-
-Copy `CSharp/AbletonLink.cs` into the `Plugins` folder.
-Create the `x86_64` folder under the `Plugins` folder.
-Copy `UnityAbletonLink.dll` into the `Plugins/x86_64` folder.
+Copy the `Plugins` folder into the `Assets` folder of the Unity project.
 
 Where `AbletonLink.cs` is a wrapper script for `UnityAbletonLink` plugin.
 
-Write some script to use it.
+Write some script to use this plugin.
 For example,
 
 ```Example.cs
@@ -40,38 +27,34 @@ using UnityEngine;
 
 public class Example : MonoBehaviour {
 
-	private AbletonLink link;
-
 	// Use this for initialization
 	void Start () {
+        // To activate the connection, user must enable the setting manually.
+        AbletonLink.Instance.showLinkSettings();
 	}
 
 	// Update is called once per frame
 	void Update () {
-        	double beat, phase, tempo, time;
-		int numPeers;
-        	AbletonLink.Instance.update(out beat, out phase, out tempo, out time, out numPeers);
+        double beat, phase, tempo, time;
+        int numPeers;
+        AbletonLink.Instance.update(out beat, out phase, out tempo, out time, out numPeers);
 
-		// We can obtain the latest beat and phase like this.
-		Debug.Log ("beat: " + beat + " phase:" + phase);
+        // We can obtain the latest beat and phase like this.
+        Debug.Log ("beat: " + beat + " phase:" + phase);
 	}
 }
 ```
 
-Attach the script to a GameObject (e.g. Main Camera or something).
+Attach the script to a GameObject (e.g. Main Camera or a GameObject).
 
-Play the scene and play the other Ableton Link supported application such as Ableton Live, then you can see log messages like the following.
-```
-...
-beat: 43.151854 phase:3.151854
-UnityEngine.Debug:Log(Object)
-beat: 43.265132 phase:3.265132
-UnityEngine.Debug:Log(Object)
-...
-```
+Set the target platform iOS, then build the application.
+
+## Difference between UnityAbletonLink and UnityAbletonLinkKit
+
+UnityAbletonLinkKit has the `showLinkSettings()` API to enable user to control the connection to a Link server. Whereas UnityAbletonLink has not.
 
 ## License
 
-These codes are licensed under CC0.
+Excluding LinkKit, licensed under CC0.
 
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png "CC0")](http://creativecommons.org/publicdomain/zero/1.0/deed)

@@ -1,6 +1,3 @@
-[submodule "link"]
-	path = link
-	url = https://github.com/Ableton/link
-[submodule "abl_link"]
-	path = abl_link
-	url = git@github.com:libpd/abl_link.git
+[submodule "Plugins/iOS/LinkKit"]
+	path = Plugins/iOS/LinkKit
+	url = https://github.com/Ableton/LinkKit.git
