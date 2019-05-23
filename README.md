@@ -27,21 +27,21 @@ using UnityEngine;
 
 public class Example : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-        // To activate the connection, user must enable the setting manually.
+    // Use this for initialization
+    void Start () {
+        // IMPORTANT! To activate the connection, user must enable the setting manually.
         AbletonLink.Instance.showLinkSettings();
-	}
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         double beat, phase, tempo, time;
         int numPeers;
         AbletonLink.Instance.update(out beat, out phase, out tempo, out time, out numPeers);
 
         // We can obtain the latest beat and phase like this.
         Debug.Log ("beat: " + beat + " phase:" + phase);
-	}
+    }
 }
 ```
 
