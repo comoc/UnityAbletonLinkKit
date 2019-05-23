@@ -8,6 +8,9 @@ public class LinkInfo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// IMPORTANT! To activate the connection, user must enable the setting manually.
+		AbletonLink.Instance.showLinkSettings();
+
 		//var numPeersPtr = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(new AbletonLink.NumPeersCallbackDelegate(numPeers));
 		//AbletonLink.Instance.setNumPeersCallback(numPeersPtr);
 		//var tempoPtr = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(new AbletonLink.TempoCallbackDelegate(tempo));
@@ -16,21 +19,12 @@ public class LinkInfo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        double beat, phase, tempo, time;
-        int numPeers;
-        AbletonLink.Instance.update(out beat, out phase, out tempo, out time, out numPeers);
-        double quantum = AbletonLink.Instance.quantum();
+		double beat, phase, tempo, time;
+		int numPeers;
+		AbletonLink.Instance.update(out beat, out phase, out tempo, out time, out numPeers);
+		double quantum = AbletonLink.Instance.quantum();
 		GetComponent<Text> ().text = "Tempo:" + tempo + " Quantum:" + quantum + "\n"
 			+ "Beat:" + beat + " Phase:" + phase + "\n"
 			+ "NumPeers:" + numPeers;
 	}
-
-	//AbletonLink.NumPeersCallbackDelegate numPeers = peers => {
-	//	Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " : " + peers);
-	//};
-
-	//AbletonLink.TempoCallbackDelegate tempo = bpm => {
-	//	Debug.Log(System.Reflection.MethodBase.GetCurrentMethod().Name + " : " + bpm);
-	//};
-
 }
