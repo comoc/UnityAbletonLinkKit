@@ -4,19 +4,13 @@ UnityAbletonLink is an [iOS SDK for Ableton Link](https://github.com/Ableton/Lin
 
 ## Creating a Unity application
 
-Create a new Unity project.
-
-Copy the `Plugins` folder into the `Assets` folder of the Unity project.
-
-Download a `LinkLit.zip` file from [here](https://github.com/Ableton/LinkKit/releases).
-
-Extract the `LinkLit.zip` into the `Assets/Plugins/iOS` folder.
-
-Remove the `Assets/Plugins/iOS/LinkKit/examples` folder.
-
-Where `AbletonLink.cs` is a wrapper script for `UnityAbletonLinkKit` plugin.
-
+- Create a new Unity project.
+- Copy the `Plugins` folder into the `Assets` folder of the Unity project.
+- Download a `LinkLit.zip` file from its [Release page](https://github.com/Ableton/LinkKit/releases).
+- Extract the `LinkLit.zip` into the `Assets/Plugins/iOS` folder.
+- Remove the `Assets/Plugins/iOS/LinkKit/examples` folder.
 - Write some script to use this plugin.
+
   For example,
 
 ```Example.cs
@@ -44,9 +38,8 @@ public class Example : MonoBehaviour {
 }
 ```
 
-Attach the script to a GameObject (e.g. Main Camera or a GameObject).
-
-Set the target platform iOS, then build the application.
+- Attach the script to a GameObject (e.g. Main Camera or a GameObject).
+- Set the target platform iOS, then build the application.
 
 ## Difference between UnityAbletonLink and UnityAbletonLinkKit
 
