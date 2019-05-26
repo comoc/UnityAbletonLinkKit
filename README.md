@@ -2,8 +2,7 @@
 
 UnityAbletonLink is an [iOS SDK for Ableton Link](https://github.com/Ableton/LinkKit) plugin for [Unity](https://unity3d.com).
 
-
-## Writing a Unity application
+## Creating a Unity application
 
 Create a new Unity project.
 Copy the `Plugins` folder into the `Assets` folder of the Unity project.
