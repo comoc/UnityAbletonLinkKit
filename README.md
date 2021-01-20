@@ -1,6 +1,6 @@
 # UnityAbletonLinkKit
 
-UnityAbletonLink is an [iOS SDK for Ableton Link](https://github.com/Ableton/LinkKit) plugin for [Unity](https://unity3d.com).
+UnityAbletonLinkKit is an [iOS SDK for Ableton Link](https://github.com/Ableton/LinkKit) plugin for [Unity](https://unity3d.com).
 
 ## Creating a Unity application
 
@@ -41,9 +41,9 @@ public class Example : MonoBehaviour {
 - Attach the script to a GameObject (e.g. Main Camera or a GameObject).
 - Set the target platform iOS, then build the application.
 
-## Difference between UnityAbletonLink and UnityAbletonLinkKit
+## Difference between [UnityAbletonLink](https://github.com/comoc/UnityAbletonLink) and UnityAbletonLinkKit
 
-UnityAbletonLinkKit has the `showLinkSettings()` API to enable user to control the connection to a Link server. Whereas UnityAbletonLink has not.
+UnityAbletonLinkKit has the `showLinkSettings()` API to enable user to control the connection to a Link server. Whereas [UnityAbletonLink](https://github.com/comoc/UnityAbletonLink) has not.
 
 ## License
 
