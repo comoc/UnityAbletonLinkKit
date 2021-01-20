@@ -47,6 +47,8 @@ UnityAbletonLinkKit has the `showLinkSettings()` API to enable user to control t
 
 ## License
 
+##### By using LinkKit you agree to the terms and conditions of the [Ableton Link SDK license](https://github.com/Ableton/LinkKit/blob/master/LICENSE.md).
+
 Excluding LinkKit, licensed under CC0.
 
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png "CC0")](http://creativecommons.org/publicdomain/zero/1.0/deed)
