@@ -6,9 +6,6 @@ UnityAbletonLinkKit is an [iOS SDK for Ableton Link](https://github.com/Ableton/
 
 - Create a new Unity project.
 - Copy the `Plugins` folder into the `Assets` folder of the Unity project.
-- Download a `LinkLit.zip` file from its [Release page](https://github.com/Ableton/LinkKit/releases).
-- Extract the `LinkLit.zip` into the `Assets/Plugins/iOS` folder.
-- Remove the `Assets/Plugins/iOS/LinkKit/examples` folder.
 - Write some script to use this plugin.
 
   For example,
@@ -39,7 +36,19 @@ public class Example : MonoBehaviour {
 ```
 
 - Attach the script to a GameObject (e.g. Main Camera or a GameObject).
-- Set the target platform iOS, then build the application.
+- In Unity, configure the following.
+  - In `Project Settings > Player > iOS > Other Settings`,
+    - Set `Target Device` to `iPhone + iPad`.
+    - Set `Target SDK` to `Device SDK`.
+  - In `Build Settings`,
+    - Set the `Platform` to `iOS`.
+- Build the Unity project.
+- Open the Unity-iPhone.xcodeproj output from the Unity build in Xcode.
+- Download a `LinkLit.zip` file from its [Release page](https://github.com/Ableton/LinkKit/releases).
+- Extract the `LinkLit.zip` to somewhere.
+- In Xcode's `Frameworks` folder, add a reference to `LinkKit.xcframework` in the extracted LinkKit folder.
+- In Xcode, go to `File > Project Settings` and set `Build System` to `New Build System (Default)`.
+- Build and run it on the iOS device
 
 ## Difference between [UnityAbletonLink](https://github.com/comoc/UnityAbletonLink) and UnityAbletonLinkKit
 
