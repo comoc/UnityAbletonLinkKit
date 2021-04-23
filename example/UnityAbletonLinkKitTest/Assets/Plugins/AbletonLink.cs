@@ -175,4 +175,17 @@ public class AbletonLink: IDisposable
     {
         update(nativeInstance, out beat, out phase, out tempo, out time, out numPeers);
     }
+
+#if UNITY_IOS
+    [DllImport ("__Internal")]
+    private static extern void showLinkSettings(IntPtr ptr);
+    public void showLinkSettings()
+    {
+#if !UNITY_EDITOR
+        showLinkSettings(nativeInstance);
+#endif
+    }
+#else
+    public void showLinkSettings() {}
+#endif
 }
