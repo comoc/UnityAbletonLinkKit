@@ -8,15 +8,16 @@ public class LinkInfo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+#if UNITY_IOS
 		// IMPORTANT! To activate the connection, user must enable the setting manually.
 		AbletonLink.Instance.showLinkSettings();
-
+#endif
 		//var numPeersPtr = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(new AbletonLink.NumPeersCallbackDelegate(numPeers));
 		//AbletonLink.Instance.setNumPeersCallback(numPeersPtr);
 		//var tempoPtr = System.Runtime.InteropServices.Marshal.GetFunctionPointerForDelegate(new AbletonLink.TempoCallbackDelegate(tempo));
 		//AbletonLink.Instance.setTempoCallback(tempoPtr);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		double beat, phase, tempo, time;
