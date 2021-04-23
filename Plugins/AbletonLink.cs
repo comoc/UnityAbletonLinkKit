@@ -25,7 +25,7 @@ public class AbletonLink: IDisposable
         }
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -41,7 +41,7 @@ public class AbletonLink: IDisposable
         this.Dispose();
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -55,7 +55,7 @@ public class AbletonLink: IDisposable
         }
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -66,7 +66,7 @@ public class AbletonLink: IDisposable
         setup(nativeInstance, bpm);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -77,7 +77,7 @@ public class AbletonLink: IDisposable
         setTempo(nativeInstance, bpm);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -88,7 +88,7 @@ public class AbletonLink: IDisposable
         return tempo(nativeInstance);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -99,7 +99,7 @@ public class AbletonLink: IDisposable
         setQuantum(nativeInstance, quantum);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -110,7 +110,7 @@ public class AbletonLink: IDisposable
         return quantum(nativeInstance);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport("UnityAbletonLink")]
@@ -121,7 +121,7 @@ public class AbletonLink: IDisposable
         forceBeatAtTime(nativeInstance, beat);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport("UnityAbletonLink")]
@@ -132,7 +132,7 @@ public class AbletonLink: IDisposable
         requestBeatAtTime(nativeInstance, beat);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -143,7 +143,7 @@ public class AbletonLink: IDisposable
         enable(nativeInstance, bEnable);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport("UnityAbletonLink")]
@@ -154,7 +154,7 @@ public class AbletonLink: IDisposable
         return isEnabled(nativeInstance);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -165,7 +165,7 @@ public class AbletonLink: IDisposable
         return numPeers(nativeInstance);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
 #else
     [DllImport ("UnityAbletonLink")]
@@ -176,12 +176,14 @@ public class AbletonLink: IDisposable
         update(nativeInstance, out beat, out phase, out tempo, out time, out numPeers);
     }
 
-#if UNITY_IPHONE
+#if UNITY_IOS
     [DllImport ("__Internal")]
     private static extern void showLinkSettings(IntPtr ptr);
     public void showLinkSettings()
     {
+#if !UNITY_EDITOR
         showLinkSettings(nativeInstance);
+#endif
     }
 #else
     public void showLinkSettings() {}

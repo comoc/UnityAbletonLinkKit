@@ -1,6 +1,7 @@
 #include "MyAbletonLinkKit.h"
 #include <algorithm>
 #include <cmath>
+#include <chrono>
 
 #include <mach/mach_time.h>
 
@@ -9,11 +10,11 @@
 using namespace std;
 
 namespace{
-    uint64_t getTimeNs(){
+    uint64_t get_mach_absolute_time(){
         mach_timebase_info_data_t base;
         mach_timebase_info(&base);
         uint64_t absTime = mach_absolute_time();
-        return (absTime * base.numer) / base.denom;
+        return absTime;
     }
 }
 
@@ -64,7 +65,7 @@ void MyAbletonLinkKit::setup(double tempo){
     ABLLinkSetActive(link_, true);
     
     auto state = ABLLinkCaptureAppSessionState(link_);
-    const auto time = getTimeNs();
+    const auto time = get_mach_absolute_time();
     ABLLinkSetIsPlaying(state, true, time);
     ABLLinkCommitAppSessionState(link_, state);
 }
@@ -74,7 +75,7 @@ void MyAbletonLinkKit::setTempo(double bpm){
         return;
     }
     auto state = ABLLinkCaptureAppSessionState(link_);
-    const auto time = getTimeNs();
+    const auto time = get_mach_absolute_time();
     ABLLinkSetTempo(state, bpm, time);
     ABLLinkCommitAppSessionState(link_, state);
 }
@@ -100,7 +101,7 @@ void MyAbletonLinkKit::forceBeatAtTime(double beat) {
         return;
     }
     auto state = ABLLinkCaptureAppSessionState(link_);
-    const auto time = getTimeNs();
+    const auto time = get_mach_absolute_time();
     ABLLinkForceBeatAtTime(state, beat, time, quantum_);
     ABLLinkCommitAppSessionState(link_, state);
 }
@@ -110,7 +111,7 @@ void MyAbletonLinkKit::requestBeatAtTime(double beat) {
         return;
     }
     auto state = ABLLinkCaptureAppSessionState(link_);
-    const auto time = getTimeNs();
+    const auto time = get_mach_absolute_time();
     ABLLinkRequestBeatAtTime(state, beat, time, quantum_);
     ABLLinkCommitAppSessionState(link_, state);
 }
@@ -157,13 +158,13 @@ MyAbletonLinkKit::Status MyAbletonLinkKit::update(){
     }
     
     auto state = ABLLinkCaptureAppSessionState(link_);
-    const auto time = getTimeNs();
+    const auto time = get_mach_absolute_time();
     
     status.beat  = ABLLinkBeatAtTime(state, time, quantum_);
     status.phase = ABLLinkPhaseAtTime(state, time, quantum_);
     status.quantam = quantum_;
     status.tempo = ABLLinkGetTempo(state);
-    status.time = getTimeNs() / 1000;
+    status.time = get_mach_absolute_time() / 1000;
     status.numPeers = 0; // Not supported 
     return status;
 }
