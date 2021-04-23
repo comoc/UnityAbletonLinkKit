@@ -2,6 +2,8 @@
 
 UnityAbletonLinkKit is an [iOS SDK for Ableton Link](https://github.com/Ableton/LinkKit) plugin for [Unity](https://unity3d.com).
 
+[![Demo](https://img.youtube.com/vi/NPEjub3Ftpk/0.jpg)](https://www.youtube.com/watch?v=NPEjub3Ftpk)
+
 ## Creating a Unity application
 
 - Create a new Unity project.
