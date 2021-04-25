@@ -52,6 +52,11 @@ public class Example : MonoBehaviour {
 - In Xcode, go to `File > Project Settings` and set `Build System` to `New Build System (Default)`.
 - Build and run it on the iOS device
 
+## Note
+
+The `Plugins` folder contains a bundle of [UnityAbletonLink](https://github.com/comoc/UnityAbletonLink) for testing in the Editor on macOS.
+If you run it in the Editor, you may get an error when you press the `Play` button once you set the `Platform to PC, Mac & Linux Standalone` in the `Build Settings`.
+
 ## Difference between [UnityAbletonLink](https://github.com/comoc/UnityAbletonLink) and UnityAbletonLinkKit
 
 UnityAbletonLinkKit has the `showLinkSettings()` API to enable user to control the connection to a Link server. Whereas [UnityAbletonLink](https://github.com/comoc/UnityAbletonLink) has not.
